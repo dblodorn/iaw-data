@@ -1,4 +1,8 @@
 language: node_js
 node_js: node
-install: npm install jsonlint -g
-script: jsonlint ./**/*.json
+before_script:
+    - npm i -g jsonlint copy
+script:
+    - jsonlint ./**/*.json
+after_success:
+    - node copyfiles.js
